@@ -1,13 +1,14 @@
-<!doctype html>
-<html lang="nl">
 <?php
 session_start();
 if(!isset($_SESSION['user_id']))
 {
     $msg = "Je moet eerst inloggen!";
-    header("Location: $base_url/login.php?msg=$msg");
+    header("Location: http://localhost/Tweede%20Periode/H13_Timesheed/login.php?msg=$msg");
     exit;
-}?>
+}
+?>
+<!doctype html>
+<html lang="nl">
 <head>
     <title>TimeSheet / Logs / Nieuw</title>
     <?php require_once '../head.php'; ?>

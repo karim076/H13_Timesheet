@@ -52,26 +52,7 @@ if($action == 'create')
         ":prioriteit" => $prioriteit
     ]);
      //  
-     //      5. Haal de gegevens op (tip: je verwacht één resultaat, niet een lijst)
-     $user = $statement->fetch(PDO::FETCH_ASSOC);
-         //2. Check of je een resultaat krijgt (anders: account bestaat niet)
-    //   If-statement, check of "$statement->rowCount()" kleiner is dan 1
-    if ( $statement->rowCount() < 1)
-    {
-        die("Error:accountbestaatniet");
-    }
 
-    //3. Check of het ingevulde wachtwoord klopt met die uit de DB
-    //   Gebruik hiervoor password_verify(), zie evt. http://php.net/password_verify
-    if ( !password_verify($password,$user['password']))
-    {
-        die("Error:wacht woord niet juist!");
-    }
-
-    //4. Alles alles klopt: stop gebruikersgegevens in de session
-    $_SESSION['user_ids'] = $user['id'];
-    $_SESSION['user_name'] = $user["username"];
-    $voorwaarden = true;
     header("location: http://localhost/Tweede%20Periode/H11_StoringApp/index.php");
     exit;
 }
