@@ -107,7 +107,19 @@ header{
     padding-bottom: 1rem;
     background-color: #226d89;
 }
-
+.space1{
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+.space{
+  padding-right: 30px;
+}
+nav{
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
 header, header a, .btn, .msg{
     color: hsl(196, 10%, 95%);
 }
