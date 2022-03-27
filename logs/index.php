@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="nl">
-
+<?php session_start(); ?>
 <head>
     <title>TimeSheet / Logs</title>
     <?php require_once '../head.php'; ?>
