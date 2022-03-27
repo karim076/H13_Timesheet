@@ -1,5 +1,11 @@
 <?php
 session_start();
+if(!isset($_SESSION['user_id']))
+{
+    $msg = "Je moet eerst inloggen!";
+    header("Location: $base_url/login.php?msg=$msg");
+    exit;
+}
 if($action == 'create')
 {
     //Validatie
