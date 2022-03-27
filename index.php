@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 
 <!doctype html>
 <html lang="nl">
@@ -20,8 +19,9 @@
                     <h1>TimeSheet</h1>
                     <p class="subtext">Inleveropdracht H6</p>
                 </div>
-                <?php if(isset($_SESSION['user_id'])): ?>
-                    <a href="logs/create.php" class="btn">Maak nieuwe log</a>
+                <?php session_start();
+                    if(isset($_SESSION['user_id'])): ?>
+                       <a href="logs/create.php" class="btn">Maak nieuwe log</a>
                 <?php endif; ?>
             </div>
             <p>In deze applicatie houden werknemers van DeveloperLand hun gewerkte uren bij. Na je dienst kun je een <em><strong>log</strong></em> maken waarin de datum, gewerkte uren en afdeling worden opgeslagen. Regels:</p>

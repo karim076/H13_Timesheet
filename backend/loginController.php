@@ -1,8 +1,8 @@
 <?php
     session_start();
-    if(isset($_POST['msg']))
+    if(isset($_GET['msg']))
     {
-        echo "<divclass='msg'>" .$_POST['msg']. "</div>";
+        echo "<divclass='msg'>" .$_GET['msg']. "</div>";
     }
     $username = $_POST['username'];
     $password = $_POST['password'];
@@ -41,6 +41,5 @@
     //4. Alles alles klopt: stop gebruikersgegevens in de session
     $_SESSION['user_id'] = $user['id'];
     $_SESSION['user_name'] = $user["username"];
-    header("location: http://localhost/Tweede%20Periode/H13_Timesheed/index.php");
 ?>
 
