@@ -45,7 +45,7 @@ if(!isset($_SESSION['user_id']))
         }
         $edits = $statement->fetchAll(PDO::FETCH_ASSOC);
         ?>
-        <div class="extrainfo"> 
+        <div class="countFilter"> 
             <p>Aantal logs:<strong><?php echo count($edits); ?></strong></p>
 
             <form action="" method="POST">
