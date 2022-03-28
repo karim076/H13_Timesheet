@@ -37,23 +37,22 @@ if($action == 'create')
     require_once 'conn.php';
 
     //2. Query
-    $query="INSERT INTO logs(user,attractie,type_,capaciteit) 
+    $query="INSERT INTO logs(user,dates,duration,department) 
             VALUES(:user_ids:dating,:duration,:department)";
     //3. Prepare
     $statement=$conn->prepare($query);
     //4. Execute
     $statement->execute
     ([
-        ":attractie" => $attractie,
-        ":type_" => $type_,
-        ":capaciteit" => $capaciteit,
+        ":user" => $user_ids,
+        ":dates" => $dating,
+        ":duration" => $duration,
         ":melder" => $melder,
-        ":overigemelder" => $overigemelder,
-        ":prioriteit" => $prioriteit
+        ":department" => $department
     ]);
      //  
 
-    header("location: http://localhost/Tweede%20Periode/H11_StoringApp/index.php");
+    header("location: http://localhost/Tweede%20Periode/H13_Timesheed/index.php");
     exit;
 }
 
