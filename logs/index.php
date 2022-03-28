@@ -53,7 +53,7 @@ if(!isset($_SESSION['user_id']))
                 <th>Gebruikers-id</th>
                 <th>Aanpassen</th>
             </tr>
-            <?php foreach($logs as $log): ?>
+            <?php foreach($edits as $log): ?>
                 <tr>
                     <td><?php echo $log['duration']; ?>u</td>
                     <td><?php echo ucfirst($log['department']); ?></td>
