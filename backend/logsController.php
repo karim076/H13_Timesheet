@@ -6,7 +6,8 @@ if(!isset($_SESSION['user_id']))
     header("Location:login.php?msg=$msg");
     exit;
 }
-$dates = $_POST['date'];
+$id = $_SESSION['user_id'];
+$dates = $_POST['dates'];
 $duration = $_POST['duration'];
 $department = $_POST['department'];
 $user = $_SESSION['user_id'];
@@ -58,17 +59,19 @@ if($action == "update")
 {
     require_once 'conn.php';
 
-    $query = "UPDATE logs SET date = :date, duration = :duration, department = :department, user = :user WHERE id = :id";
+    $query = "UPDATE logs SET dates = :dates, duration = :duration, department = :department, user = :user WHERE id = :id";
 
     $statement = $conn->prepare($query);
 
     $statement->execute([
         ":id" => $id,
         ":user" => $user,
-        ":date" => $date,
+        ":dates" => $dates,
         ":duration" => $duration,
-        ":department" => $department,
+        ":department" => $department
     ]);
+    header("location: http://localhost/Tweede%20Periode/H13_Timesheed/index.php");
+    exit;
 }
 
 if($action == "delete")
