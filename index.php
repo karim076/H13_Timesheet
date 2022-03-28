@@ -53,7 +53,7 @@
                     echo "<tr>";
                     echo "<td>{$log['duration']}u</td>";
                     echo "<td>{$log['department']}</td>";
-                    echo "<td>{$log['date']}</td>";
+                    echo "<td>{$log['dates']}</td>";
                     echo "</tr>";
                 }
                 echo "</table>";
