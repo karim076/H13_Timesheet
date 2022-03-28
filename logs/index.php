@@ -26,14 +26,20 @@ if(!isset($_SESSION['user_id']))
         if (isset($_POST['status']))
         {
             $filter = $_POST['status'];  
-            $query = "SELECT * FROM logs WHERE department = :department ORDER BY dates DESC";
+            $query = "SELECT * FROM logs 
+                      WHERE department = :department 
+                      ORDER BY dates DESC";
+
             $statement = $conn->prepare($query);
-            $statement->execute([
+
+            $statement->execute
+            ([
                 ":department" => $_POST['status']
-                ]);
+            ]);
         }
         else{
-            $query = "SELECT * FROM logs ORDER BY dates DESC";
+            $query = "SELECT * FROM logs 
+                      ORDER BY dates DESC";
             $statement = $conn->prepare($query);
             $statement->execute();
         }
@@ -44,15 +50,14 @@ if(!isset($_SESSION['user_id']))
 
             <form action="" method="POST">
                 <select name="status">
-                    <option value=""> - kies afdeling om te filteren - </option>
-                    <option value="attracties"<?= ($filter == "attracties")? "selected":"attracties";?>>Attracties</option>
-                    <option value="horeca"<?= ($filter == "horeca")? "selected":"horeca";?>>Horeca</option>
+                    <option value=""> >- kies een afdeling om te filteren -< </option>
+                    <option value="attracties"<?= ($filter == "attracties")? "selected" : "attracties";?>>Attracties</option>
+                    <option value="horeca"<?= ($filter == "horeca")? "selected" : "horeca";?>>Horeca</option>
                     <option value="techniek"<?= ($filter == "techniek")? "selected":"techniek";?>>Techniek</option>
                     <option value="groen"<?= ($filter == "groen")? "selected":"groen";?>>Groen</option>
-                    <option value="klantenservice"<?= ($filter == "klantenservice")? "selected":"klantenservice";?>>Klantenservice</option>
-                    <option value="personeel"<?= ($filter == "personeel")? "selected":"personeel";?>>Personeel</option>
-                    <option value="inkoop"<?= ($filter == "inkoop")? "selected":"inkoop";?>>Inkoop</option>
-                    
+                    <option value="klantenservice"<?= ($filter == "klantenservice")? "selected" : "klantenservice";?>>Klantenservice</option>
+                    <option value="personeel"<?= ($filter == "personeel")? "selected" : "personeel";?>>Personeel</option>
+                    <option value="inkoop"<?= ($filter == "inkoop")? "selected" : "inkoop";?>>Inkoop</option>
                 </select>
                 <input type="submit" value="filter">
             </form>
