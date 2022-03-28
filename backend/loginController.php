@@ -41,7 +41,9 @@
     //4. Alles alles klopt: stop gebruikersgegevens in de session
     $_SESSION['user_id'] = $user['id'];
     $_SESSION['user_name'] = $user["username"];
-    header("location: $base_url/index.php");
+    $naming = $user["name"];
+    $_SESSION['name'] = $naming;
+    header("location: $base_url/index.php?msg=$naming");
     exit;
 ?>
 
