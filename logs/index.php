@@ -44,6 +44,25 @@ if(!isset($_SESSION['user_id']))
                 </tr>
             <?php endforeach; ?>
         </table>
+        <h1>Edit/Update</h1>
+        <table>
+            <tr>
+                <th>Duur</th>
+                <th>Afdeling</th>
+                <th>Datum &downarrow;</th>
+                <th>Gebruikers-id</th>
+                <th>Aanpassen</th>
+            </tr>
+            <?php foreach($logs as $log): ?>
+                <tr>
+                    <td><?php echo $log['duration']; ?>u</td>
+                    <td><?php echo ucfirst($log['department']); ?></td>
+                    <td><?php echo $log['dates']; ?></td>
+                    <td>#<?php echo $log['user']; ?></td>
+                    <td><?php echo "<a href='edit.php?id={$log['id']}'>Aanpassen</a>"; ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </table>
 
 
     </div>
