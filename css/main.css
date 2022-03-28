@@ -115,6 +115,11 @@ header{
 .space{
   padding-right: 30px;
 }
+.countFilter{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 nav{
   display: flex;
   justify-content: space-around;
