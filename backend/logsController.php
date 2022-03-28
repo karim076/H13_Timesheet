@@ -11,8 +11,8 @@ $action = $_POST["action"];
 if($action == 'create') 
 {
     //Validatie
-    $dating = $_POST['date'];
-    if(empty($date))
+    $dates = $_POST['date'];
+    if(empty($dates))
     {
         $errors[] = "Vul een datum in!";
     }
@@ -37,19 +37,17 @@ if($action == 'create')
     }
     //1. Verbinding
     require_once 'conn.php';
-
+    $user = $_SESSION['user_id'];
     //2. Query
-    $query="INSERT INTO logs(user,dates,duration,department) 
-            VALUES(:user_ids:dating,:duration,:department)";
+    $query = "INSERT INTO logs(user,dates,duration,department) VALUES(:user,:dates,:duration,:department)";
     //3. Prepare
     $statement=$conn->prepare($query);
     //4. Execute
     $statement->execute
     ([
-        ":user" => $user_ids,
-        ":dates" => $dating,
+        ":user" => $user,
+        ":dates" => $dates,
         ":duration" => $duration,
-        ":melder" => $melder,
         ":department" => $department
     ]);
 
