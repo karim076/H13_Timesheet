@@ -22,7 +22,7 @@ if(!isset($_SESSION['user_id']))
 
         <?php
         require_once '../backend/conn.php';
-        $query = "SELECT * FROM logs ORDER BY date DESC";
+        $query = "SELECT * FROM logs ORDER BY dates DESC";
         $statement = $conn->prepare($query);
         $statement->execute();
         $logs = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -39,7 +39,7 @@ if(!isset($_SESSION['user_id']))
                 <tr>
                     <td><?php echo $log['duration']; ?></td>
                     <td><?php echo $log['department']; ?></td>
-                    <td><?php echo $log['date']; ?></td>
+                    <td><?php echo $log['dates']; ?></td>
                     <td>#<?php echo $log['user']; ?></td>
                 </tr>
             <?php endforeach; ?>
