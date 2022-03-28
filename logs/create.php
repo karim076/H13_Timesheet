@@ -25,8 +25,8 @@ if(!isset($_SESSION['user_id']))
             <input type="hidden" name="action" value="create">
         
             <div class="form-group">
-                <label for="date">Datum:</label>
-                <input type="date" name="date" id="date" class="form-input" value="<?php echo date("d-m-Y"); ?>">
+                <label for="dates">Datum:</label>
+                <input type="date" name="dates" id="dates" class="form-input" value="<?php echo date("d-m-Y"); ?>">
             </div>
             <div class="form-group">
                 <label for="duration">Duur (uren):</label>
