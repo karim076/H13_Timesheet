@@ -26,7 +26,7 @@ if(!isset($_SESSION['user_id']))
         
             <div class="form-group">
                 <label for="date">Datum:</label>
-                <input type="date" name="date" id="date" class="form-input" value="<?php echo date("Y-m-d"); ?>">
+                <input type="date" name="date" id="date" class="form-input" value="<?php echo date("d-m-Y"); ?>">
             </div>
             <div class="form-group">
                 <label for="duration">Duur (uren):</label>
@@ -34,12 +34,19 @@ if(!isset($_SESSION['user_id']))
             </div>
             <div class="form-group">
                 <label for="department">Afdeling:</label>
-                <!-- Voeg hier nog een select toe, met deze opties:
-                    personeel, horeca, techniek, inkoop, klantenservice, groen, attracties
-                -->
+                <select id="cars" name="department">
+                    <option value="">> - Filter op afdeling -</option>
+                    <option value="attracties">Attracties (gastheer/vrouw)</option>
+                    <option value="horeca">Restaurant en cafés</option>
+                    <option value="techniek">Technische dienst</option>
+                    <option value="groen">Groenbeheer</option>
+                    <option value="klantenservice">Klantenservice</option>
+                    <option value="personeel">Personeel en HR</option>
+                    <option value="inkoop">Inkoop</option>
+                </select>
             </div>
 
-            <input type="submit" value="create">
+            <input type="submit" value="Log opslaan">
 
 
     </div>
