@@ -46,13 +46,13 @@
                 <label for="department">Afdeling:</label>
                 <select name="department" id= "department">
                     <option value="" > - Kies afdeling - </option>
-                    <option value="attacties" <?= ($log['department']== "attacties")? "selected":"attacties";?>>Attracties (gastheer/vrouw)</option>
-                    <option value="horeca" <?= ($log['department']== "horeca")? "selected":"horeca";?>>Restaurant en cafés</option>
-                    <option value="techniek" <?= ($log['department']== "techniek")? "selected":"techniek";?>>Technische dienst</option>
-                    <option value="groen" <?= ($log['department']== "groen")? "selected":"groen";?>>Groenbeheer</option>
-                    <option value="klantenservice" <?= ($log['department']== "klantenservice")? "selected":"klantenservice";?>>Klantenservice</option>
-                    <option value="personeel" <?= ($log['department']== "personeel")? "selected":"personeel";?>>Personeel en HR</option>
-                    <option value="inkoop" <?= ($log['department']== "inkoop")? "selected":"inkoop";?>>inkoop</option>
+                    <option value="attacties" <?= ($log['department'] == "attacties")? "selected" : "attacties";?>>Attracties (gastheer/vrouw)</option>
+                    <option value="horeca" <?= ($log['department'] == "horeca")? "selected" : "horeca";?>>Restaurant en cafés</option>
+                    <option value="techniek" <?= ($log['department'] == "techniek")? "selected" : "techniek";?>>Technische dienst</option>
+                    <option value="groen" <?= ($log['department' ]== "groen")? "selected" : "groen";?>>Groenbeheer</option>
+                    <option value="klantenservice" <?= ($log['department'] == "klantenservice")? "selected" : "klantenservice";?>>Klantenservice</option>
+                    <option value="personeel" <?= ($log['department'] == "personeel")? "selected" : "personeel";?>>Personeel en HR</option>
+                    <option value="inkoop" <?= ($log['department'] == "inkoop")? "selected" : "inkoop";?>>inkoop</option>
                 </select>
             </div>
 
