@@ -25,13 +25,6 @@
     $statement->execute([":id" => $id]);
     
     $log = $statement->fetch(PDO::FETCH_ASSOC);
-
-    if($_SESSION['user_id'] != $log["user"])
-    {
-        $msg = "Gebruik een andere acount die toegang hier voor krijgt.";
-        header("Location: $base_url/login.php?msg=$msg");
-        exit;
-    }
      ?>
     <div class="container">
 
@@ -43,7 +36,7 @@
         
             <div class="form-group">
                 <label for="dates">Datum:</label>
-                <?php echo "<input type='date' name='dates' id='date' class='form-input' value='{$log['dates']}'>"?>
+                <?php echo "<input type='date' name='dates' id='dates' class='form-input' value='{$log['dates']}'>"?>
             </div>
             <div class="form-group">
                 <label for="duration">Duur (uren):</label>
@@ -53,13 +46,13 @@
                 <label for="department">Afdeling:</label>
                 <select name="department" id= "department">
                     <option value="" > - Kies afdeling - </option>
-                    <option value="personeel" <?= ($log['department']== "personeel")? "selected":"personeel";?>> - personeel - </option>
-                    <option value="horeca" <?= ($log['department']== "horeca")? "selected":"horeca";?>> - horeca - </option>
-                    <option value="techniek" <?= ($log['department']== "techniek")? "selected":"techniek";?>> - techniek - </option>
-                    <option value="inkoop" <?= ($log['department']== "inkoop")? "selected":"inkoop";?>> - inkoop - </option>
-                    <option value="klantenservice" <?= ($log['department']== "klantenservice")? "selected":"klantenservice";?>> - klantenservice - </option>
-                    <option value="groen" <?= ($log['department']== "groen")? "selected":"groen";?>> - groen - </option>
-                    <option value="attacties" <?= ($log['department']== "attacties")? "selected":"attacties";?>> - attracties - </option>
+                    <option value="attacties" <?= ($log['department']== "attacties")? "selected":"attacties";?>>Attracties (gastheer/vrouw)</option>
+                    <option value="horeca" <?= ($log['department']== "horeca")? "selected":"horeca";?>>Restaurant en cafés</option>
+                    <option value="techniek" <?= ($log['department']== "techniek")? "selected":"techniek";?>>Technische dienst</option>
+                    <option value="groen" <?= ($log['department']== "groen")? "selected":"groen";?>>Groenbeheer</option>
+                    <option value="klantenservice" <?= ($log['department']== "klantenservice")? "selected":"klantenservice";?>>Klantenservice</option>
+                    <option value="personeel" <?= ($log['department']== "personeel")? "selected":"personeel";?>>Personeel en HR</option>
+                    <option value="inkoop" <?= ($log['department']== "inkoop")? "selected":"inkoop";?>>inkoop</option>
                 </select>
             </div>
 
