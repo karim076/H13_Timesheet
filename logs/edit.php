@@ -42,8 +42,8 @@
             <input type="hidden" name="id" value="<?php echo $id; ?>">
         
             <div class="form-group">
-                <label for="date">Datum:</label>
-                <?php echo "<input type='date' name='date' id='date' class='form-input' value='{$log['date']}'>"?>
+                <label for="dates">Datum:</label>
+                <?php echo "<input type='date' name='dates' id='date' class='form-input' value='{$log['dates']}'>"?>
             </div>
             <div class="form-group">
                 <label for="duration">Duur (uren):</label>
