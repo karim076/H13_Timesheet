@@ -1,4 +1,5 @@
-<?php require_once 'backend/config.php'; ?>
+<?php require_once 'backend/conn.php';
+?>
 
 <header>
     <div class="container">
@@ -9,12 +10,12 @@
         <div>
         <div class="space1">
             <?php
-            error_reporting(E_ERROR | E_WARNING | E_PARSE); 
-            session_start();
+            error_reporting(E_ERROR | E_WARNING | E_PARSE);
+            session_start(); 
             if(!isset($_SESSION['user_id'])): ?>
                 <p><a href="<?php echo $base_url; ?>/login.php">Inloggen</a></p>
             <?php else: ?>
-                <?php echo "<div class='space'>hello, <strong>", $_SESSION['user_name'], "</strong></div>"?>
+                <?php echo "<div class='space'>Welkom, <strong>", $_SESSION['name'], "|</strong></div>"?>
                 <p><a href="<?php echo $base_url; ?>/logout.php">Uitloggen</a></p>
             <?php endif; ?>
             </div>
