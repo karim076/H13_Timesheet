@@ -22,11 +22,42 @@ if(!isset($_SESSION['user_id']))
 
         <?php
         require_once '../backend/conn.php';
-        $query = "SELECT * FROM logs ORDER BY dates DESC";
-        $statement = $conn->prepare($query);
-        $statement->execute();
+        $filter = "";
+        if (isset($_POST['status']))
+        {
+            $filter = $_POST['status'];  
+            $query = "SELECT * FROM logs WHERE department = :department ORDER BY dates DESC";
+            $statement = $conn->prepare($query);
+            $statement->execute([
+                ":department" => $_POST['status']
+                ]);
+        }
+        else{
+            $query = "SELECT * FROM logs ORDER BY dates DESC";
+            $statement = $conn->prepare($query);
+            $statement->execute();
+        }
         $edits = $statement->fetchAll(PDO::FETCH_ASSOC);
         ?>
+        <div class="extrainfo"> 
+            <p>Aantal logs:<strong><?php echo count($edits); ?></strong></p>
+
+            <form action="" method="POST">
+                <select name="status">
+                    <option value=""> - kies afdeling om te filteren - </option>
+                    <option value="attracties"<?= ($filter == "attracties")? "selected":"attracties";?>>Attracties</option>
+                    <option value="horeca"<?= ($filter == "horeca")? "selected":"horeca";?>>Horeca</option>
+                    <option value="techniek"<?= ($filter == "techniek")? "selected":"techniek";?>>Techniek</option>
+                    <option value="groen"<?= ($filter == "groen")? "selected":"groen";?>>Groen</option>
+                    <option value="klantenservice"<?= ($filter == "klantenservice")? "selected":"klantenservice";?>>Klantenservice</option>
+                    <option value="personeel"<?= ($filter == "personeel")? "selected":"personeel";?>>Personeel</option>
+                    <option value="inkoop"<?= ($filter == "inkoop")? "selected":"inkoop";?>>Inkoop</option>
+                    
+                </select>
+                <input type="submit" value="filter">
+            </form>
+        </div>
+    ?>
 
         
         <table>
