@@ -62,7 +62,6 @@ if(!isset($_SESSION['user_id']))
                 <input type="submit" value="filter">
             </form>
         </div>
-    ?>
 
         
         <table>
