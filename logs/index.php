@@ -25,7 +25,7 @@ if(!isset($_SESSION['user_id']))
         $query = "SELECT * FROM logs ORDER BY dates DESC";
         $statement = $conn->prepare($query);
         $statement->execute();
-        $logs = $statement->fetchAll(PDO::FETCH_ASSOC);
+        $edits = $statement->fetchAll(PDO::FETCH_ASSOC);
         ?>
 
         <table>
@@ -35,7 +35,7 @@ if(!isset($_SESSION['user_id']))
                 <th>Datum &downarrow;</th>
                 <th>Gebruikers-id</th>
             </tr>
-            <?php foreach($logs as $log): ?>
+            <?php foreach($edits as $log): ?>
                 <tr>
                     <td><?php echo $log['duration']; ?></td>
                     <td><?php echo $log['department']; ?></td>
