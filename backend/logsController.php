@@ -6,24 +6,24 @@ if(!isset($_SESSION['user_id']))
     header("Location:login.php?msg=$msg");
     exit;
 }
-
+$dates = $_POST['date'];
+$duration = $_POST['duration'];
+$department = $_POST['department'];
+$user = $_SESSION['user_id'];
 $action = $_POST["action"];
 if($action == 'create') 
 {
     //Validatie
-    $dates = $_POST['date'];
     if(empty($dates))
     {
         $errors[] = "Vul een datum in!";
     }
 
-    $duration = $_POST['duration'];
     if(empty($duration))
     {
         $errors[] = "Vul een duur in!";
     }
 
-    $department = $_POST['department'];
     if(empty($department))
     {
         $errors[] = "Vul een afdeling in!";
@@ -37,7 +37,6 @@ if($action == 'create')
     }
     //1. Verbinding
     require_once 'conn.php';
-    $user = $_SESSION['user_id'];
     //2. Query
     $query = "INSERT INTO logs(user,dates,duration,department) VALUES(:user,:dates,:duration,:department)";
     //3. Prepare
@@ -57,7 +56,19 @@ if($action == 'create')
 
 if($action == "update")
 {
+    require_once 'conn.php';
 
+    $query = "UPDATE logs SET date = :date, duration = :duration, department = :department, user = :user WHERE id = :id";
+
+    $statement = $conn->prepare($query);
+
+    $statement->execute([
+        ":id" => $id,
+        ":user" => $user,
+        ":date" => $date,
+        ":duration" => $duration,
+        ":department" => $department,
+    ]);
 }
 
 if($action == "delete")
