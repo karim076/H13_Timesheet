@@ -28,23 +28,7 @@ if(!isset($_SESSION['user_id']))
         $edits = $statement->fetchAll(PDO::FETCH_ASSOC);
         ?>
 
-        <table>
-            <tr>
-                <th>Duur</th>
-                <th>Afdeling</th>
-                <th>Datum &downarrow;</th>
-                <th>Gebruikers-id</th>
-            </tr>
-            <?php foreach($edits as $log): ?>
-                <tr>
-                    <td><?php echo $log['duration']; ?></td>
-                    <td><?php echo $log['department']; ?></td>
-                    <td><?php echo $log['dates']; ?></td>
-                    <td>#<?php echo $log['user']; ?></td>
-                </tr>
-            <?php endforeach; ?>
-        </table>
-        <h1>Edit/Update</h1>
+        
         <table>
             <tr>
                 <th>Duur</th>
