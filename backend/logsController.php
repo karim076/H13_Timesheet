@@ -2,11 +2,13 @@
 session_start();
 if(!isset($_SESSION['user_id']))
 {
-    $msg = "Je moet eerst inloggen!";
-    header("Location: $base_url/login.php?msg=$msg");
+    $msg="Je moet eerst inloggen!"; 
+    header("Location:login.php?msg=$msg");
     exit;
 }
-if($action == 'create')
+
+$action = $_POST["action"];
+if($action == 'create') 
 {
     //Validatie
     $dating = $_POST['date'];
@@ -50,7 +52,6 @@ if($action == 'create')
         ":melder" => $melder,
         ":department" => $department
     ]);
-     //  
 
     header("location: http://localhost/Tweede%20Periode/H13_Timesheed/index.php");
     exit;

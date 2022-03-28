@@ -39,7 +39,7 @@ if(!isset($_SESSION['user_id']))
                 -->
             </div>
 
-            <input type="submit" value="Log opslaan">
+            <input type="submit" value="create">
 
 
     </div>
