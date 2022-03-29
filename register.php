@@ -28,8 +28,12 @@
                 <input type="text" name="username" id="username" placeholder="gebruikers naam">
             </div>
             <div class="form-group">
-                <label for="username">Naam:</label>
-                <input type="text" name="username" id="username" placeholder="Gebruik je naam">
+                <label for="name">Naam:</label>
+                <input type="text" name="name" id="name" placeholder="Gebruik je naam">
+            </div>
+            <div class="form-group">
+                <label for="email">Gebruikersnaam:</label>
+                <input type="email" name="email" id="email" placeholder="email">
             </div>
             <div class="form-group">
                 <label for="password">Wachtwoord:</label>
