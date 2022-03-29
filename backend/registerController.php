@@ -17,7 +17,7 @@
     # hashing
     if ($password != $passwordRetry)
     {
-        die()
+        die("Voer het zelfde wachtwoord in!")
     }
     $hash = password_hash($password)
 ?>
