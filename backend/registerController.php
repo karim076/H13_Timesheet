@@ -17,29 +17,32 @@
     # hashing
     if ($password != $passwordRetry)
     {
-        die("Voer het zelfde wachtwoord in!")
+        die("Voer het zelfde wachtwoord in!");
     }
-    $hash = password_hash($password)
+
     if(isset($errors))
     {
         var_dump($errors);
         die();
     }
+    
+    $hash = password_hash($password, PASSWORD_DEFAULT);
     //1. Verbinding
     require_once 'conn.php';
+    
     //2. Query
-    $query = "INSERT INTO user(user,dates,duration,department) VALUES(:user,:dates,:duration,:department)";
+    $query = "INSERT INTO users(name,username,password) VALUES(:name,:username,:password)";
+    
     //3. Prepare
     $statement=$conn->prepare($query);
     //4. Execute
     $statement->execute
     ([
-        ":user" => $user,
-        ":dates" => $dates,
-        ":duration" => $duration,
-        ":department" => $department
+        ":name" => $name,
+        ":username" => $username,
+        ":password" => $hash
     ]);
-
-    header("location: http://localhost/Tweede%20Periode/H13_Timesheed/index.php");
+    $msg = "Uw acount is Succesvol aangemaakt log nu in!";
+    header("location: $base_url/login.php?msg=$msg");
     exit;
 ?>
