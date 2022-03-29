@@ -14,6 +14,7 @@
             session_start(); 
             if(!isset($_SESSION['user_id'])): ?>
                 <p><a href="<?php echo $base_url; ?>/login.php">Inloggen</a></p>
+                <p>-|-</p>
                 <p><a href="<?php echo $base_url; ?>/register.php">Register</a></p>
             <?php else: ?>
                 <?php echo "<div class='space'>Welkom, <strong>", $_SESSION['name'], "|</strong></div>"?>
