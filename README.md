@@ -1,3 +1,5 @@
-# H13_Timesheed
- H13 full login system + (CRUD)
- H14 is registeren dus deze h13 timesheet is H13 em H14 gecombimeerd.
+## H13_Timesheed<br>
+#functions:
+- H13 full login system 
+- CRUD
+- register
